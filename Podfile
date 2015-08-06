@@ -6,8 +6,3 @@ target 'stream-iosx' do
     pod 'AFNetworking', '~> 2.5'
     pod 'UICKeyChainStore', '~> 1.0.0'
 end
-
-target 'stream-iosxTests' do
-
-end
-

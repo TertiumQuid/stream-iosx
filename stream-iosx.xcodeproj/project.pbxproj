@@ -7,21 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0D64CF1B73C8CF008B7F86 /* StreamClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D64CE1B73C8CF008B7F86 /* StreamClient.m */; };
 		1FA3F2D01B7391CE00FDDE4A /* stream_iosx.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FA3F2CF1B7391CE00FDDE4A /* stream_iosx.h */; };
 		1FA3F2D21B7391CE00FDDE4A /* stream_iosx.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA3F2D11B7391CE00FDDE4A /* stream_iosx.m */; };
-		1FA3F2D81B7391CE00FDDE4A /* libstream-iosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA3F2CC1B7391CE00FDDE4A /* libstream-iosx.a */; };
 		F52377DB27203A3F9A61B15E /* libPods-stream-iosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF825E622415FCDA0C77206 /* libPods-stream-iosx.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1FA3F2D91B7391CE00FDDE4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1FA3F2C41B7391CE00FDDE4A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1FA3F2CB1B7391CE00FDDE4A;
-			remoteInfo = "stream-iosx";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		1FA3F2CA1B7391CE00FDDE4A /* CopyFiles */ = {
@@ -37,11 +27,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F0D64CD1B73C8CF008B7F86 /* StreamClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamClient.h; sourceTree = "<group>"; };
+		1F0D64CE1B73C8CF008B7F86 /* StreamClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamClient.m; sourceTree = "<group>"; };
 		1FA3F2CC1B7391CE00FDDE4A /* libstream-iosx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstream-iosx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA3F2CF1B7391CE00FDDE4A /* stream_iosx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stream_iosx.h; sourceTree = "<group>"; };
 		1FA3F2D11B7391CE00FDDE4A /* stream_iosx.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stream_iosx.m; sourceTree = "<group>"; };
-		1FA3F2D71B7391CE00FDDE4A /* stream-iosxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stream-iosxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FA3F2DD1B7391CE00FDDE4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4046A64C66899BFE9438ED54 /* Pods-stream-iosx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stream-iosx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stream-iosx/Pods-stream-iosx.debug.xcconfig"; sourceTree = "<group>"; };
 		7DF825E622415FCDA0C77206 /* libPods-stream-iosx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stream-iosx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DA0CE926BDD450DC65ECF7 /* Pods-stream-iosx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stream-iosx.release.xcconfig"; path = "Pods/Target Support Files/Pods-stream-iosx/Pods-stream-iosx.release.xcconfig"; sourceTree = "<group>"; };
@@ -56,22 +46,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FA3F2D41B7391CE00FDDE4A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1FA3F2D81B7391CE00FDDE4A /* libstream-iosx.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0D64CB1B73C883008B7F86 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D64CD1B73C8CF008B7F86 /* StreamClient.h */,
+				1F0D64CE1B73C8CF008B7F86 /* StreamClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		1F0D64CC1B73C889008B7F86 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		1FA3F2C31B7391CE00FDDE4A = {
 			isa = PBXGroup;
 			children = (
 				1FA3F2CE1B7391CE00FDDE4A /* stream-iosx */,
-				1FA3F2DB1B7391CE00FDDE4A /* stream-iosxTests */,
 				1FA3F2CD1B7391CE00FDDE4A /* Products */,
 				4DCBD1CC15038C1FA2634DD2 /* Pods */,
 				935C02C809541986CF53AF73 /* Frameworks */,
@@ -82,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				1FA3F2CC1B7391CE00FDDE4A /* libstream-iosx.a */,
-				1FA3F2D71B7391CE00FDDE4A /* stream-iosxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,26 +86,12 @@
 		1FA3F2CE1B7391CE00FDDE4A /* stream-iosx */ = {
 			isa = PBXGroup;
 			children = (
+				1F0D64CC1B73C889008B7F86 /* Classes */,
+				1F0D64CB1B73C883008B7F86 /* Client */,
 				1FA3F2CF1B7391CE00FDDE4A /* stream_iosx.h */,
 				1FA3F2D11B7391CE00FDDE4A /* stream_iosx.m */,
 			);
 			path = "stream-iosx";
-			sourceTree = "<group>";
-		};
-		1FA3F2DB1B7391CE00FDDE4A /* stream-iosxTests */ = {
-			isa = PBXGroup;
-			children = (
-				1FA3F2DC1B7391CE00FDDE4A /* Supporting Files */,
-			);
-			path = "stream-iosxTests";
-			sourceTree = "<group>";
-		};
-		1FA3F2DC1B7391CE00FDDE4A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1FA3F2DD1B7391CE00FDDE4A /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4DCBD1CC15038C1FA2634DD2 /* Pods */ = {
@@ -151,24 +133,6 @@
 			productReference = 1FA3F2CC1B7391CE00FDDE4A /* libstream-iosx.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		1FA3F2D61B7391CE00FDDE4A /* stream-iosxTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1FA3F2E31B7391CE00FDDE4A /* Build configuration list for PBXNativeTarget "stream-iosxTests" */;
-			buildPhases = (
-				1FA3F2D31B7391CE00FDDE4A /* Sources */,
-				1FA3F2D41B7391CE00FDDE4A /* Frameworks */,
-				1FA3F2D51B7391CE00FDDE4A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1FA3F2DA1B7391CE00FDDE4A /* PBXTargetDependency */,
-			);
-			name = "stream-iosxTests";
-			productName = "stream-iosxTests";
-			productReference = 1FA3F2D71B7391CE00FDDE4A /* stream-iosxTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,9 +143,6 @@
 				ORGANIZATIONNAME = Bellwether;
 				TargetAttributes = {
 					1FA3F2CB1B7391CE00FDDE4A = {
-						CreatedOnToolsVersion = 6.3.2;
-					};
-					1FA3F2D61B7391CE00FDDE4A = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
@@ -199,20 +160,9 @@
 			projectRoot = "";
 			targets = (
 				1FA3F2CB1B7391CE00FDDE4A /* stream-iosx */,
-				1FA3F2D61B7391CE00FDDE4A /* stream-iosxTests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		1FA3F2D51B7391CE00FDDE4A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		98FD7580206B0F2D446B9B93 /* Check Pods Manifest.lock */ = {
@@ -252,26 +202,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0D64CF1B73C8CF008B7F86 /* StreamClient.m in Sources */,
 				1FA3F2D21B7391CE00FDDE4A /* stream_iosx.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1FA3F2D31B7391CE00FDDE4A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1FA3F2DA1B7391CE00FDDE4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1FA3F2CB1B7391CE00FDDE4A /* stream-iosx */;
-			targetProxy = 1FA3F2D91B7391CE00FDDE4A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1FA3F2DE1B7391CE00FDDE4A /* Debug */ = {
@@ -372,38 +308,6 @@
 			};
 			name = Release;
 		};
-		1FA3F2E41B7391CE00FDDE4A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "stream-iosxTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		1FA3F2E51B7391CE00FDDE4A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "stream-iosxTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -421,15 +325,6 @@
 			buildConfigurations = (
 				1FA3F2E11B7391CE00FDDE4A /* Debug */,
 				1FA3F2E21B7391CE00FDDE4A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1FA3F2E31B7391CE00FDDE4A /* Build configuration list for PBXNativeTarget "stream-iosxTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1FA3F2E41B7391CE00FDDE4A /* Debug */,
-				1FA3F2E51B7391CE00FDDE4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

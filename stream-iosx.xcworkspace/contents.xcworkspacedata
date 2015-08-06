@@ -5,6 +5,12 @@
       location = "group:stream-iosx.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
+      location = "group:stream-iosx.podspec">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

@@ -8,10 +8,20 @@
 
 #import "StreamClient.h"
 
+NSString * const StreamAPILocation = @"api";
+NSString * const StreamAPIVersion = @"v1.0";
+NSString * const StreamAPIUrl = @"https://%@.getstream.io/api/%@";
+
+@interface StreamClient()
+
+- (id) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret;
+
+@end
+
 @implementation StreamClient
 
 + (instancetype)sharedClient {
-    return [self initWithId:nil andSecret:nil];
+    return [self initWithApiKey:nil andApiSecret:nil];
 }
 
 + (instancetype) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret {
@@ -20,8 +30,26 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
+        client = [[StreamClient alloc] initWithApiKey:apiKey andApiSecret:apiSecret];
     });
     return client;
+}
+
+- (id) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret {
+    NSString *baseUrl = [NSString stringWithFormat:StreamAPIUrl, StreamAPILocation, StreamAPIVersion];
+    
+    self = [super initWithBaseURL:[NSURL URLWithString:baseUrl]];
+    if (!self) {
+        return nil;
+    }
+    self.apiKey = apiKey;
+    self.apiSecret = apiSecret;
+    self.apiVersion = StreamAPIVersion;
+    self.apiLocation = StreamAPILocation;
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
+    return self;
 }
 
 - (NSURLSessionDataTask *)GET:(NSString *)URLString

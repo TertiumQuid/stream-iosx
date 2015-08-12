@@ -11,6 +11,12 @@
 
 @interface StreamClient : AFHTTPSessionManager
 
+@property (strong, nonatomic) NSString *appId;
+@property (strong, nonatomic) NSString *apiKey;
+@property (strong, nonatomic) NSString *apiSecret;
+@property (strong, nonatomic) NSString *apiVersion;
+@property (strong, nonatomic) NSString *apiLocation;
+
 + (instancetype) sharedClient;
 + (instancetype) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret;
 

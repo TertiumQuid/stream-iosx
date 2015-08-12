@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F02076F1B7B5705002288AA /* StreamFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F02076E1B7B5705002288AA /* StreamFeed.m */; };
 		1F0D64CF1B73C8CF008B7F86 /* StreamClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D64CE1B73C8CF008B7F86 /* StreamClient.m */; };
 		1FA3F2D01B7391CE00FDDE4A /* stream_iosx.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FA3F2CF1B7391CE00FDDE4A /* stream_iosx.h */; };
 		1FA3F2D21B7391CE00FDDE4A /* stream_iosx.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA3F2D11B7391CE00FDDE4A /* stream_iosx.m */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F02076D1B7B5705002288AA /* StreamFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamFeed.h; sourceTree = "<group>"; };
+		1F02076E1B7B5705002288AA /* StreamFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamFeed.m; sourceTree = "<group>"; };
 		1F0D64CD1B73C8CF008B7F86 /* StreamClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamClient.h; sourceTree = "<group>"; };
 		1F0D64CE1B73C8CF008B7F86 /* StreamClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamClient.m; sourceTree = "<group>"; };
 		1FA3F2CC1B7391CE00FDDE4A /* libstream-iosx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstream-iosx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,11 +61,13 @@
 			name = Client;
 			sourceTree = "<group>";
 		};
-		1F0D64CC1B73C889008B7F86 /* Classes */ = {
+		1F0D64CC1B73C889008B7F86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F02076D1B7B5705002288AA /* StreamFeed.h */,
+				1F02076E1B7B5705002288AA /* StreamFeed.m */,
 			);
-			name = Classes;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		1FA3F2C31B7391CE00FDDE4A = {
@@ -86,7 +91,7 @@
 		1FA3F2CE1B7391CE00FDDE4A /* stream-iosx */ = {
 			isa = PBXGroup;
 			children = (
-				1F0D64CC1B73C889008B7F86 /* Classes */,
+				1F0D64CC1B73C889008B7F86 /* Models */,
 				1F0D64CB1B73C883008B7F86 /* Client */,
 				1FA3F2CF1B7391CE00FDDE4A /* stream_iosx.h */,
 				1FA3F2D11B7391CE00FDDE4A /* stream_iosx.m */,
@@ -204,6 +209,7 @@
 			files = (
 				1F0D64CF1B73C8CF008B7F86 /* StreamClient.m in Sources */,
 				1FA3F2D21B7391CE00FDDE4A /* stream_iosx.m in Sources */,
+				1F02076F1B7B5705002288AA /* StreamFeed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,9 +13,14 @@ NSString * const StreamAPILocation = @"api";
 NSString * const StreamAPIVersion = @"v1.0";
 NSString * const StreamAPIUrl = @"https://%@.getstream.io/api/%@";
 
+NSInteger const DefaultTimeoutIntervalInSeconds = 3;
+
 @interface StreamClient()
 
 - (instancetype) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret;
+- (void) initRequestHeaders;
+- (void) initSerialization;
+- (NSString *) versionBuild;
 
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(NSDictionary *)parameters
@@ -66,10 +71,36 @@ NSString * const StreamAPIUrl = @"https://%@.getstream.io/api/%@";
     self.apiSecret = apiSecret;
     self.apiVersion = StreamAPIVersion;
     self.apiLocation = StreamAPILocation;
+
+    [self initSerialization];
+    [self initRequestHeaders];
+    
+    self.requestSerializer.timeoutInterval = DefaultTimeoutIntervalInSeconds;
     
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     return self;
+}
+
+- (void) initSerialization {
+    self.requestSerializer = [AFJSONRequestSerializer serializer];
+    self.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    self.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
+                                                                           @"text/json",
+                                                                           @"text/javascript",
+                                                                           @"text/html", nil];
+    
+    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type" ];
+}
+
+- (void) initRequestHeaders {
+    NSString *clientHeader = [NSString stringWithFormat: @"stream-iosx-%@", [self versionBuild]];
+    [self.requestSerializer setValue:clientHeader forHTTPHeaderField:@"X-Stream-Client"];
+    
+    NSString *authHeader = @"??????????";
+    [self.requestSerializer setValue:authHeader forHTTPHeaderField:@"Authorization"];
 }
 
 - (StreamFeed *) getFeedForUserId:(NSString *)userId andSlug:(NSString *)slug {
@@ -111,6 +142,17 @@ NSString * const StreamAPIUrl = @"https://%@.getstream.io/api/%@";
                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure {
     
     return [super DELETE:URLString parameters:parameters success:success failure:failure];
+}
+
+- (NSString *) versionBuild {
+    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+    NSString *build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+    
+    NSString *versionBuild = version;
+    if (![version isEqualToString: build]) {
+        versionBuild = build;
+    }
+    return versionBuild;
 }
 
 @end

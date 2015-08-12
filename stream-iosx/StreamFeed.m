@@ -8,6 +8,12 @@
 
 #import "StreamFeed.h"
 
+@interface StreamFeed()
+
+@property (strong, nonatomic) NSString *signature;
+
+@end
+
 @implementation StreamFeed
 
 - (instancetype) initWithUserId:(NSString *)feedUserId andSlug:(NSString *)feedSlug andToken:(NSString *)feedToken {
@@ -17,6 +23,7 @@
         self.userId = feedUserId;
         self.slug = feedSlug;
         self.token = feedToken;
+        self.signature = [NSString stringWithFormat:@"%@%@ %@", self.slug, self.userId, self.token];
     }
     return self;
 }

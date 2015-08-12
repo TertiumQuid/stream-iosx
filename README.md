@@ -4,7 +4,11 @@ The stream-iosx is an AFNetworking-based iOS/OS X client for Stream (getstream.i
 
 ## Setup 
 
-Use CocoaPods to manage the library by adding it to a project's `Podfile` and running:
+Use CocoaPods to manage the library by adding it to a project's `Podfile`:
+
+    pod 'stream-iosx', :git => 'https://github.com/TertiumQuid/stream-iosx'
+
+And then running:
 
     pod install
 

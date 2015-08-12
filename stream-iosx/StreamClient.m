@@ -7,6 +7,7 @@
 //
 
 #import "StreamClient.h"
+#import "StreamFeed.h"
 
 NSString * const StreamAPILocation = @"api";
 NSString * const StreamAPIVersion = @"v1.0";
@@ -14,13 +15,32 @@ NSString * const StreamAPIUrl = @"https://%@.getstream.io/api/%@";
 
 @interface StreamClient()
 
-- (id) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret;
+- (instancetype) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret;
 
+- (NSURLSessionDataTask *)GET:(NSString *)URLString
+                   parameters:(NSDictionary *)parameters
+                      success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (NSURLSessionDataTask *)PUT:(NSString *)URLString
+                   parameters:(NSDictionary *)parameters
+                      success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (NSURLSessionDataTask *)POST:(NSString *)URLString
+                    parameters:(NSDictionary *)parameters
+                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (NSURLSessionDataTask *)DELETE:(NSString *)URLString
+                      parameters:(NSDictionary *)parameters
+                         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 @end
 
 @implementation StreamClient
 
-+ (instancetype)sharedClient {
++ (instancetype) sharedClient {
     return [self initWithApiKey:nil andApiSecret:nil];
 }
 
@@ -35,7 +55,7 @@ NSString * const StreamAPIUrl = @"https://%@.getstream.io/api/%@";
     return client;
 }
 
-- (id) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret {
+- (instancetype) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret {
     NSString *baseUrl = [NSString stringWithFormat:StreamAPIUrl, StreamAPILocation, StreamAPIVersion];
     
     self = [super initWithBaseURL:[NSURL URLWithString:baseUrl]];
@@ -50,6 +70,15 @@ NSString * const StreamAPIUrl = @"https://%@.getstream.io/api/%@";
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     return self;
+}
+
+- (StreamFeed *) getFeedForUserId:(NSString *)userId andSlug:(NSString *)slug {
+    NSString *token = @""; // TODO: sign token
+    
+    StreamFeed *feed = [[StreamFeed alloc] initWithUserId:userId andSlug:slug andToken:token];
+    feed.client = self;
+    
+    return feed;
 }
 
 - (NSURLSessionDataTask *)GET:(NSString *)URLString

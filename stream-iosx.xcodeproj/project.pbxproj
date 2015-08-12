@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		1F02076D1B7B5705002288AA /* StreamFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamFeed.h; sourceTree = "<group>"; };
 		1F02076E1B7B5705002288AA /* StreamFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamFeed.m; sourceTree = "<group>"; };
+		1F0207701B7B6B70002288AA /* StreamClientDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamClientDelegate.h; sourceTree = "<group>"; };
 		1F0D64CD1B73C8CF008B7F86 /* StreamClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamClient.h; sourceTree = "<group>"; };
 		1F0D64CE1B73C8CF008B7F86 /* StreamClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamClient.m; sourceTree = "<group>"; };
 		1FA3F2CC1B7391CE00FDDE4A /* libstream-iosx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libstream-iosx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +58,7 @@
 			children = (
 				1F0D64CD1B73C8CF008B7F86 /* StreamClient.h */,
 				1F0D64CE1B73C8CF008B7F86 /* StreamClient.m */,
+				1F0207701B7B6B70002288AA /* StreamClientDelegate.h */,
 			);
 			name = Client;
 			sourceTree = "<group>";

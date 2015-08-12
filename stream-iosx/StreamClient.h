@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
+#import "StreamClientDelegate.h"
 
-@interface StreamClient : AFHTTPSessionManager
+@class StreamFeed;
+
+@interface StreamClient : AFHTTPSessionManager <StreamClientDelegate>
 
 @property (strong, nonatomic) NSString *appId;
 @property (strong, nonatomic) NSString *apiKey;
@@ -20,24 +23,7 @@
 + (instancetype) sharedClient;
 + (instancetype) initWithApiKey:(NSString *)apiKey andApiSecret:(NSString *)apiSecret;
 
-- (NSURLSessionDataTask *)GET:(NSString *)URLString
-                   parameters:(NSDictionary *)parameters
-                      success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+- (StreamFeed *) getFeedForUserId:(NSString *)userId andSlug:(NSString *)slug;
 
-- (NSURLSessionDataTask *)PUT:(NSString *)URLString
-                   parameters:(NSDictionary *)parameters
-                      success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (NSURLSessionDataTask *)POST:(NSString *)URLString
-                    parameters:(NSDictionary *)parameters
-                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (NSURLSessionDataTask *)DELETE:(NSString *)URLString
-                    parameters:(NSDictionary *)parameters
-                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end
